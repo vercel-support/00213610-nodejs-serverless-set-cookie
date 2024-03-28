@@ -2,7 +2,7 @@ export const config = {
   runtime: 'edge',
 };
 
-function testNewHeaders() {
+export function GET() {
   const headers = new Headers([
     ['content-type', 'text/html'],
     ['set-cookie', 'cookie_1=value'],
@@ -13,8 +13,3 @@ function testNewHeaders() {
     headers,
   });
 }
-
-export default ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'].reduce(
-  (acc, method) => ({ ...acc, [method]: testNewHeaders }), // note can also use testAppendCookies here.
-  {}
-);

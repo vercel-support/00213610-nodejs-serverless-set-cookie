@@ -1,7 +1,7 @@
 export const config = {
   runtime: 'edge',
 };
-function testAppendCookies() {
+export function GET() {
   const res = new Response('Test append cookies', {
     headers: {
       'content-type': 'text/html',
@@ -12,8 +12,3 @@ function testAppendCookies() {
   res.headers.append('set-cookie', 'cookie_3=value');
   return res;
 }
-
-export default ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'].reduce(
-  (acc, method) => ({ ...acc, [method]: testAppendCookies }), // note can also use testAppendCookies here.
-  {}
-);
